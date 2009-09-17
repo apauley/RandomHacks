@@ -1,4 +1,5 @@
 .bzr*
+*.class
 *DS*Store
 *bowling*rb
 *string_spec*rb
