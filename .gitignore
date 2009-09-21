@@ -1,5 +1,8 @@
 .bzr*
 *.class
+*.beam
+*.o
+*.hi
 *DS*Store
 *bowling*rb
 *string_spec*rb
