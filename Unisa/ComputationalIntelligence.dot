@@ -1,0 +1,4 @@
+digraph ComputationalIntelligence {
+	APM311 -> {COS233}
+	COS233 -> {COS111 MAT103 MAT111 MAT112}
+}
