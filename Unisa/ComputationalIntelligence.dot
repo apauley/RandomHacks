@@ -1,21 +1,15 @@
 digraph ComputationalIntelligence {
-	//L3Compulsory [label="Level 3 Compulsory"]
-	{rank=same; COS301Y INF320E COS351D COS361F PYC303B}
-
-	//L3Optional [label="Level 3 Optional"]
-	{rank=same; COS3114 APM311Y MAT307Y INF303D LIN3028 COS340A}
+	{rank=same; COS301Y INF320E COS351D COS361F}
+	{rank=same; COS3114 APM311Y MAT307Y COS340A}
+	{rank=same; INF303D LIN3028 PYC303B}
   
-	//L2Compulsory [label="Level 2 Compulsory"]
 	{rank=same; COS201V COS211X COS261C COS2144}
+	{rank=same; COS2213 COS2338 MAT212S}
+	{rank=same; LIN309F LIN2024 PLS207B}
 
-	//L2Optional [label="Level 2 Optional"]
-	{rank=same; COS2213 COS2338 MAT212S LIN309F LIN2024 PLS207B}
-
-	//L1Compulsory [label="Level 1 Compulsory"]
-	{rank=same; COS101S COS112V COS113W INF1208 MAT112P MAT111N PYC101Y COS111U CSS101H STS1055 CEM101A}
-
-	//L1Optional [label="Level 1 Optional"]
-	{rank=same; MAT103N DSC1510 LIN101W INF1511}
+	{rank=same; COS101S COS112V COS113W INF1208 MAT112P MAT111N MAT103N PYC101Y COS111U LIN101W INF1511}
+	{rank=same; DSC1510 CSS101H STS1055 CEM101A}
+	{rank=max; DSC1510 COS101S}
 
 	COS301Y -> {COS201V} [label=Requires]
 	INF320E -> {INF1208 INF1511} [label=Requires]
