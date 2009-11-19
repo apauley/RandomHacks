@@ -23,24 +23,26 @@ digraph ComputationalIntelligence {
 	COS361F -> {COS261C} [label=Requires]
 	PYC303B -> {PYC101Y} [label=Requires]
 
-	COS3114
+	COS3114 -> {COS211X COS2144}
 	APM311Y -> {COS2338} [label=Requires]
-	MAT307Y
-	INF303D
-	LIN3028
+	MAT307Y -> {MAT212S COS201V} [style=dashed]
+	INF303D -> {COS211X}
+	LIN3028 -> {LIN101W} [style=dashed]
 	COS340A -> {COS211X MAT103N} [label=Requires]
 
 
 	COS201V -> {COS101S} [label=Requires]
-	COS211X
-	COS261C
-	COS2144
+	COS211X -> {COS112V}
+	COS261C -> {COS101S}
+	COS2144 -> {COS112V}
 
-	COS2213 -> {COS112V COS113W COS211X} [label=Requires]
+	{rank=same; COS2213 COS211X}
+	COS2213 -> {COS112V COS113W} [label=Requires]
+	COS2213 -> {COS211X} [label=CoRequirement]
 	COS2338 -> {COS111U MAT103N MAT111N MAT112P} [label=Requires]
 	MAT212S
-	LIN309F
-	LIN2024
+	LIN309F -> {LIN101W} [style=dashed]
+	LIN2024 -> {LIN101W} [style=dashed]
 	PLS207B -> {PYC101Y} [label=Requires]
 
 
