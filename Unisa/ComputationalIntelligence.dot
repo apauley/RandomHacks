@@ -1,4 +1,22 @@
 digraph ComputationalIntelligence {
+	//L3Compulsory [label="Level 3 Compulsory"]
+	{rank=same; COS301Y INF320E COS351D COS361F PYC303B}
+
+	//L3Optional [label="Level 3 Optional"]
+	{rank=same; COS3114 APM311Y MAT307Y INF303D LIN3028 COS340A}
+  
+	//L2Compulsory [label="Level 2 Compulsory"]
+	{rank=same; COS201V COS211X COS261C COS2144}
+
+	//L2Optional [label="Level 2 Optional"]
+	{rank=same; COS2213 COS2338 MAT212S LIN309F LIN2024 PLS207B}
+
+	//L1Compulsory [label="Level 1 Compulsory"]
+	{rank=same; COS101S COS112V COS113W INF1208 MAT112P MAT111N PYC101Y COS111U CSS101H STS1055 CEM101A}
+
+	//L1Optional [label="Level 1 Optional"]
+	{rank=same; MAT103N DSC1510 LIN101W INF1511}
+
 	COS301Y -> {COS201V} [label=Requires]
 	INF320E -> {INF1208 INF1511} [label=Requires]
 	COS361F -> {COS261C} [label=Requires]
@@ -8,43 +26,14 @@ digraph ComputationalIntelligence {
 	COS340A -> {COS211X MAT103N} [label=Requires]
 	APM311Y -> {COS2338} [label=Requires]
 
-	{rank=same
-	COS301Y
-	INF320E
-	COS361F
-	COS351D
-	PYC303B
 
-	COS340A
-	APM311Y
-	}
-
-	COS201V -> {COS101C} [label=Requires]
+	COS201V -> {COS101S} [label=Requires]
 	COS2338 -> {COS111U MAT103N MAT111N MAT112P} [label=Requires]
 	COS2213 -> {COS112V COS113W COS211X} [label=Requires]
 
 	PLS207B -> {PYC101Y} [label=Requires]
-	MAT212S -> {MAT103N MAT112P} [label=Provides, dir=back]
 
-	{rank=same
-	COS201V
-	COS2338
-	COS2213
-
-	PLS207B
-	MAT212S
-	}
 
 	MAT103N -> {MAT212S} [label=Provides]
-
-	{rank=same
-	DSC1510
-	INF1208
-	INF1511
-	CEM101A
-	MAT103N
-	CSS101H
-	STS1055
-	PYC101Y
-	LIN101W}
+	MAT112P -> {MAT212S} [label=Provides]
 }
