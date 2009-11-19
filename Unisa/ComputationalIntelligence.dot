@@ -1,7 +1,7 @@
 digraph ComputationalIntelligence {
 	rankdir=LR
 
-	{rank=same; COS301Y INF320E COS351D COS361F}
+	{rank=same; COS301Y INF320E COS351D PLS3708}
 	{rank=same; COS3114 APM311Y MAT307Y COS340A}
 	{rank=same; INF303D LIN3028 PYC303B}
   
@@ -16,7 +16,7 @@ digraph ComputationalIntelligence {
 	COS301Y -> {COS201V} [label=Requires]
 	INF320E -> {INF1208 INF1511} [label=Requires]
 	COS351D -> {COS211X COS261C} [label=Requires]
-	COS361F -> {COS261C} [label=Requires]
+	PLS3708 -> {COS261C} [label=Requires]
 	PYC303B -> {PYC101Y} [label=Requires]
 
 	COS3114 -> {COS211X COS2144}
