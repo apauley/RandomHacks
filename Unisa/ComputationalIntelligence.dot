@@ -1,4 +1,6 @@
 digraph ComputationalIntelligence {
+	rankdir=LR
+
 	{rank=same; COS301Y INF320E COS351D COS361F}
 	{rank=same; COS3114 APM311Y MAT307Y COS340A}
 	{rank=same; INF303D LIN3028 PYC303B}
