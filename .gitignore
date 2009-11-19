@@ -1,4 +1,3 @@
-.bzr*
 *.class
 *.beam
 *.o
@@ -6,11 +5,3 @@
 *DS*Store
 *bowling*rb
 *string_spec*rb
-Erlang
-Haskell
-Lisp
-Quine
-Scheme
-django
-lvn
-rails
