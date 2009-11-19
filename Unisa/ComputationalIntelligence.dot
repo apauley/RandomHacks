@@ -1,4 +1,50 @@
 digraph ComputationalIntelligence {
-	APM311 -> {COS233}
-	COS233 -> {COS111 MAT103 MAT111 MAT112}
+	COS301Y -> {COS201V} [label=Requires]
+	INF320E -> {INF1208 INF1511} [label=Requires]
+	COS361F -> {COS261C} [label=Requires]
+	COS351D -> {COS211X COS261C} [label=Requires]
+	PYC303B -> {PYC101Y} [label=Requires]
+
+	COS340A -> {COS211X MAT103N} [label=Requires]
+	APM311Y -> {COS2338} [label=Requires]
+
+	{rank=same
+	COS301Y
+	INF320E
+	COS361F
+	COS351D
+	PYC303B
+
+	COS340A
+	APM311Y
+	}
+
+	COS201V -> {COS101C} [label=Requires]
+	COS2338 -> {COS111U MAT103N MAT111N MAT112P} [label=Requires]
+	COS2213 -> {COS112V COS113W COS211X} [label=Requires]
+
+	PLS207B -> {PYC101Y} [label=Requires]
+	MAT212S -> {MAT103N MAT112P} [label=Provides, dir=back]
+
+	{rank=same
+	COS201V
+	COS2338
+	COS2213
+
+	PLS207B
+	MAT212S
+	}
+
+	MAT103N -> {MAT212S} [label=Provides]
+
+	{rank=same
+	DSC1510
+	INF1208
+	INF1511
+	CEM101A
+	MAT103N
+	CSS101H
+	STS1055
+	PYC101Y
+	LIN101W}
 }
