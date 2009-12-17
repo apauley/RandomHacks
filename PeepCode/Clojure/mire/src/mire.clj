@@ -16,7 +16,7 @@
             *out* (writer out)]
     (print-prompt)
     (loop [input (read-line)]
-      (println input)
+      (println (execute input))
       (print-prompt)
       (recur (read-line)))))
 
