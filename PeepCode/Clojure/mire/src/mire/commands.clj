@@ -1,4 +1,5 @@
-(ns mire.commands)
+(ns mire.commands
+  (:use [clojure.contrib str-utils]))
 
 (defn current-time []
   (str "The current time is now " (java.util.Date.)))
@@ -9,4 +10,6 @@
 (defn execute
   "Execute a command passed from the client"
   [input]
-  ((commands input)))
+  (let [input-words (re-split #"\s+" input)
+        command (first input-words)]
+    ((commands command))))
