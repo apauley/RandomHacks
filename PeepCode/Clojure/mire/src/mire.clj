@@ -24,4 +24,5 @@
 
 (comment
   (close-server server)
+  (add-classpath "file:///Users/andreas/Projekte/Persoonlik/RandomHacks/PeepCode/Clojure/mire/src/")
 )
