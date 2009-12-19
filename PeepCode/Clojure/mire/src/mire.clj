@@ -11,7 +11,7 @@
 
 (defn- mire-handle-client [in out]
   "Private function to handle client requests"
-  
+
   (binding [*in* (reader in) ; Re-assign stdin and stdout
             *out* (writer out)]
     (print-prompt)
