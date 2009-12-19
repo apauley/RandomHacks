@@ -1,5 +1,10 @@
 (ns mire.rooms)
 
-(def *current-room*
-     {:desc "You don't know where you are. You can't see anything."
-      :exits {:nowhere "You can run but you can't hide..."}})
+(def rooms
+     {:start {:desc "You don't know where you are. You can't see anything."
+              :exits {:nowhere :start}}})
+
+(defn set-current-room [target]
+  (def *current-room* (rooms :start)))
+
+(set-current-room :start)
