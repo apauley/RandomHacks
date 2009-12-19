@@ -18,7 +18,9 @@
                :east  (fn [] (move :east))
                :south (fn [] (move :south))
                :west  (fn [] (move :west))
-               :look look})
+               :look  look
+               :wtf   (fn []
+                        "Yeah sure, I'll do that right after you grow a brain.")})
 
 (defn execute
   "Execute a command passed from the client"
@@ -26,4 +28,4 @@
   (let [input-words (re-split #"\s+" input)
         command (keyword (first input-words))
         args (rest input-words)]
-    (apply (command commands) args)))
+    (apply (command commands (:wtf commands)) args)))
