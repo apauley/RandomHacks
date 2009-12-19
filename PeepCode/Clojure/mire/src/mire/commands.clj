@@ -1,4 +1,5 @@
 (ns mire.commands
+  (:use [mire rooms])
   (:use [clojure.contrib str-utils]))
 
 (defn move
@@ -6,12 +7,10 @@
   [direction]
   (str "You are trying to go " direction))
 
-(def *current-room*
-     {:desc "You don't know where you are. You can't see anything."})
-
 (defn look []
   "Get a description of the current room"
-  (:desc *current-room*))
+  (str (:desc *current-room*)
+       "\nExits: " (keys (:exits *current-room*))))
 
 (def commands {:move move,
                :north (fn [] (move :north))
