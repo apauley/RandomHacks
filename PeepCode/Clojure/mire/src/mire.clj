@@ -14,6 +14,7 @@
 
   (binding [*in* (reader in) ; Re-assign stdin and stdout
             *out* (writer out)]
+    (println (look))
     (print-prompt)
     (loop [input (read-line)]
       (println (execute input))
