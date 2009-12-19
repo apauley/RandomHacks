@@ -13,14 +13,17 @@
   "Get a description of the current room"
   (:desc *current-room*))
 
-(def commands {"move" move,
-               "north" (fn [] (move :north))
-               "look" look})
+(def commands {:move move,
+               :north (fn [] (move :north))
+               :east  (fn [] (move :east))
+               :south (fn [] (move :south))
+               :west  (fn [] (move :west))
+               :look look})
 
 (defn execute
   "Execute a command passed from the client"
   [input]
   (let [input-words (re-split #"\s+" input)
-        command (first input-words)
+        command (keyword (first input-words))
         args (rest input-words)]
-    (apply (commands command) args)))
+    (apply (command commands) args)))
