@@ -2,6 +2,11 @@
   (:use [mire rooms])
   (:use [clojure.contrib str-utils]))
 
+(defn look []
+  "Get a description of the current room"
+  (str (:desc *current-room*)
+       "\nExits: " (keys (:exits *current-room*))))
+
 (defn move
   "We gotta get out of this place... Give a direction."
   [direction]
@@ -12,17 +17,12 @@
           (look))
       "No way")))
 
-(defn look []
-  "Get a description of the current room"
-  (str (:desc *current-room*)
-       "\nExits: " (keys (:exits *current-room*))))
-
 (def commands {:move move,
-               :north (fn [] (move :north))
-               :east  (fn [] (move :east))
-               :south (fn [] (move :south))
-               :west  (fn [] (move :west))
-               :look  look
+               :north (fn [] (move :north)),
+               :east  (fn [] (move :east)),
+               :south (fn [] (move :south)),
+               :west  (fn [] (move :west)),
+               :look  look,
                :wtf   (fn []
                         "Yeah sure, I'll do that right after you grow a brain.")})
 

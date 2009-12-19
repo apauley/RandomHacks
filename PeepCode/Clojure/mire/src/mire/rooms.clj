@@ -6,7 +6,7 @@
       :closet {:desc "You are in a cramped closet. You feel a slight breeze."
                :exits {:south :start}}})
 
-(defn set-current-room [target]
-  (def *current-room* target))
+(def *current-room*)
 
-(set-current-room (rooms :start))
+(defn set-current-room [target]
+  (set! *current-room* target))
