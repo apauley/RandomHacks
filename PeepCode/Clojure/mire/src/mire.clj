@@ -1,3 +1,5 @@
+(add-classpath (str "file://" (.getParent (java.io.File. *file*)) "/"))
+
 (ns mire
   (:use [mire commands rooms])
   (:use [clojure.contrib server-socket duck-streams]))
@@ -15,7 +17,7 @@
   ; Re-assign stdin and stdout
   (binding [*in*           (reader in)
             *out*          (writer out)
-            *current-room* (rooms :start)]
+            *current-room* (ref (rooms :start))]
     (println (look))
     (print-prompt)
     (loop [input (read-line)]

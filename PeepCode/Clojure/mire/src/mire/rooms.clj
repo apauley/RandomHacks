@@ -10,7 +10,7 @@
 
 (defn current-room []
   "Returns the current room"
-  *current-room*)
+  @*current-room*)
 
 (defn set-current-room [target]
-  (set! *current-room* target))
+  (ref-set *current-room* target))
