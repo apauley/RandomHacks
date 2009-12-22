@@ -5,7 +5,8 @@
 (defn look []
   "Get a description of the current room"
   (str (:desc (current-room))
-       "\nExits: " (keys (:exits (current-room)))))
+       "\nExits: " (keys (:exits (current-room)))
+       "\nInhabitants: " (current-inhabitants)))
 
 (defn move
   "We gotta get out of this place... Give a direction."
@@ -13,7 +14,7 @@
   (let [target-name ((:exits (current-room)) (keyword direction))
          target (rooms target-name)]
      (if target
-       (do (set-current-room target)
+       (do (move-player-to target)
            (look))
        "No way.")))
 
