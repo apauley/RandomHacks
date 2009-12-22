@@ -10,13 +10,12 @@
 (defn move
   "We gotta get out of this place... Give a direction."
   [direction]
-  (dosync
-   (let [target-name ((:exits (current-room)) (keyword direction))
+  (let [target-name ((:exits (current-room)) (keyword direction))
          target (rooms target-name)]
      (if target
        (do (set-current-room target)
            (look))
-       "No way."))))
+       "No way.")))
 
 (def commands {:move move,
                :north (fn [] (move :north)),

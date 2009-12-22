@@ -13,4 +13,4 @@
   @*current-room*)
 
 (defn set-current-room [target]
-  (ref-set *current-room* target))
+  (dosync (ref-set *current-room* target)))
