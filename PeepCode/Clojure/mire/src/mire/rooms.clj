@@ -8,5 +8,9 @@
 
 (def *current-room*)
 
+(defn current-room []
+  "Returns the current room"
+  *current-room*)
+
 (defn set-current-room [target]
   (set! *current-room* target))
