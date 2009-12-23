@@ -27,7 +27,7 @@
      (move-between-refs (keyword thing)
                         (:items (current-room))
                         *inventory*)
-     (str "You picked up " thing "."))
+     (str "You picked up the " thing "."))
     (str "There isn't any " thing " here.")))
 
 (defn discard [thing]
@@ -37,7 +37,7 @@
      (move-between-refs (keyword thing)
                         *inventory*
                         (:items (current-room)))
-     (str "You are dropped the " thing "."))
+     (str "You dropped the " thing "."))
     (str "You are not carrying any " thing ".")))
 
 (defn inventory []
