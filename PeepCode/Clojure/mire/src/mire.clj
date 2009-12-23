@@ -24,6 +24,7 @@
     (print-flush "Player name: ")
     (binding [*current-room* (ref (rooms :start))
               player-name    (read-line)]
+      (move-player-to (current-room))
       (println (look))
       (print-prompt)
       (loop [input (read-line)]
