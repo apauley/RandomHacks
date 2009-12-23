@@ -1,4 +1,5 @@
-(ns mire.rooms)
+(ns mire.rooms
+  (:use [mire util]))
 
 (declare rooms)
 
@@ -33,6 +34,7 @@
 
 (defn move-player-to [target]
   (dosync
-   (alter (:inhabitants (current-room)) disj player-name)
-   (alter (:inhabitants target)         conj player-name)
+   (move-between-refs player-name
+                      (:inhabitants (current-room))
+                      (:inhabitants target))
    (ref-set *current-room* target)))
