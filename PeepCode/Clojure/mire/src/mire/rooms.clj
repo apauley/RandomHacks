@@ -1,5 +1,5 @@
 (ns mire.rooms
-  (:use [mire util]))
+  (:use [mire player util]))
 
 (declare rooms)
 
@@ -18,7 +18,6 @@
   (def rooms (load-rooms dir)))
 
 (def *current-room*)
-(def player-name)
 
 (defn current-room []
   "Returns the current room"
@@ -40,7 +39,7 @@
 
 (defn move-player-to [target]
   (dosync
-   (move-between-refs player-name
+   (move-between-refs *player-name*
                       (:inhabitants (current-room))
                       (:inhabitants target))
    (ref-set *current-room* target)))
