@@ -32,6 +32,12 @@
   "Returns the items available in the current room"
   @(:items (current-room)))
 
+(defn room-contains? [room thing]
+  (@(:items room) (keyword thing)))
+
+(defn current-room-contains? [thing]
+  (room-contains? (current-room) thing))
+
 (defn move-player-to [target]
   (dosync
    (move-between-refs player-name

@@ -1,5 +1,5 @@
 (ns mire.commands
-  (:use [mire rooms])
+  (:use [mire rooms player util])
   (:use [clojure.contrib str-utils]))
 
 (defn look []
@@ -20,14 +20,42 @@
            (look))
        "No way.")))
 
-(def commands {:move move,
-               :north (fn [] (move :north)),
-               :east  (fn [] (move :east)),
-               :south (fn [] (move :south)),
-               :west  (fn [] (move :west)),
-               :look  look,
-               :wtf   (fn []
-                        "Yeah sure, I'll do that right after you grow a brain.")})
+(defn grab [thing]
+  "Pick up something in the room"
+  (if (current-room-contains? thing)
+    (dosync
+     (move-between-refs (keyword thing)
+                        (:items (current-room))
+                        *inventory*)
+     (str "You picked up " thing "."))
+    (str "There isn't any " thing " here.")))
+
+(defn discard [thing]
+  "Drop something you carry"
+  (if (carrying? thing)
+    (dosync
+     (move-between-refs (keyword thing)
+                        *inventory*
+                        (:items (current-room)))
+     (str "You are dropped the " thing "."))
+    (str "You are not carrying any " thing ".")))
+
+(defn inventory []
+  "See what you are carrying"
+  (str-join "\n " (conj @*inventory* "You are carrying:")))
+
+(def commands
+     {:move      move,
+      :north     (fn [] (move :north)),
+      :east      (fn [] (move :east)),
+      :south     (fn [] (move :south)),
+      :west      (fn [] (move :west)),
+      :look      look,
+      :grab      grab,
+      :discard   discard,
+      :inventory inventory,
+      :wtf       (fn []
+                   "Yeah sure, I'll do that right after you grow a brain.")})
 
 (defn execute
   "Execute a command passed from the client"

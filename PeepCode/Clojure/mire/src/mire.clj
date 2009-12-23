@@ -1,7 +1,7 @@
 (add-classpath (str "file://" (.getParent (java.io.File. *file*)) "/"))
 
 (ns mire
-  (:use [mire commands rooms util])
+  (:use [mire commands rooms player util])
   (:use [clojure.contrib server-socket duck-streams]))
 
 (def port 3333)
@@ -18,8 +18,9 @@
             *out*          (writer out)]
 
     (print-flush "\nWhat is your name? ")
-    (binding [*current-room* (ref (rooms :start))
-              player-name    (read-line)]
+    (binding [player-name    (read-line)
+              *current-room* (ref (rooms :start))
+              *inventory*    (ref #{})]
       (move-player-to (current-room))
       (println (look))
       (print-prompt)
