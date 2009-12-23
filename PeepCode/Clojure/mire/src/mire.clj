@@ -31,6 +31,7 @@
         (print-prompt)
         (recur (read-line))))))
 
+(set-rooms "../data/rooms")
 (def server (create-server port mire-handle-client))
 
 (comment

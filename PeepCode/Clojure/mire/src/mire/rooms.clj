@@ -1,12 +1,19 @@
 (ns mire.rooms)
 
-(def rooms
-     {:start {:desc "You are in an old, dusty room."
-              :exits {:north :closet}
-              :inhabitants (ref #{})}
-      :closet {:desc "You are in a cramped closet. You feel a slight breeze."
-               :exits {:south :start}
-               :inhabitants (ref #{})}})
+(declare rooms)
+
+(defn load-room [rooms file]
+  (let [room (read-string (slurp (.getAbsolutePath file)))]
+    (conj rooms {(keyword (.getName file))
+                 {:desc        (:desc room)
+                  :exits       (:exits room)
+                  :inhabitants (ref #{})}})))
+
+(defn load-rooms [dir]
+  (reduce load-room {} (.listFiles (java.io.File. dir))))
+
+(defn set-rooms [dir]
+  (def rooms (load-rooms dir)))
 
 (def *current-room*)
 (def player-name)
