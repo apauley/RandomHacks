@@ -17,7 +17,7 @@
   (binding [*in*           (reader in)
             *out*          (writer out)]
 
-    (print-flush "Player name: ")
+    (print-flush "\nWhat is your name? ")
     (binding [*current-room* (ref (rooms :start))
               player-name    (read-line)]
       (move-player-to (current-room))

@@ -7,6 +7,7 @@
     (conj rooms {(keyword (.getName file))
                  {:desc        (:desc room)
                   :exits       (:exits room)
+                  :items       (ref (or (:items room) #{}))
                   :inhabitants (ref #{})}})))
 
 (defn load-rooms [dir]
@@ -25,6 +26,10 @@
 (defn current-inhabitants []
   "Returns the inhabitants in the current room"
   @(:inhabitants (current-room)))
+
+(defn current-items []
+  "Returns the items available in the current room"
+  @(:items (current-room)))
 
 (defn move-player-to [target]
   (dosync

@@ -4,9 +4,11 @@
 
 (defn look []
   "Get a description of the current room"
-  (str (:desc (current-room))
-       "\nExits: " (keys (:exits (current-room)))
-       "\nInhabitants: " (current-inhabitants)))
+  (str "\n"
+       (:desc (current-room))
+       "\nInhabitants: " (current-inhabitants)
+       "\nItems: "       (current-items)
+       "\nExits: " (keys (:exits (current-room)))))
 
 (defn move
   "We gotta get out of this place... Give a direction."
