@@ -1,14 +1,10 @@
 (add-classpath (str "file://" (.getParent (java.io.File. *file*)) "/"))
 
 (ns mire
-  (:use [mire commands rooms])
+  (:use [mire commands rooms util])
   (:use [clojure.contrib server-socket duck-streams]))
 
 (def port 3333)
-
-(defn- print-flush [text]
-  (print text)
-  (flush))
 
 (defn- print-prompt []
   (println)
