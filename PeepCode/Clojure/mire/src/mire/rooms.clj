@@ -21,25 +21,25 @@
 
 (defn current-room []
   "Returns the current room"
-  @*current-room*)
+  *current-room*)
 
 (defn current-inhabitants []
   "Returns the inhabitants in the current room"
-  @(:inhabitants (current-room)))
+  @(:inhabitants @(current-room)))
 
 (defn current-items []
   "Returns the items available in the current room"
-  @(:items (current-room)))
+  @(:items @(current-room)))
 
 (defn room-contains? [room thing]
   (@(:items room) (keyword thing)))
 
 (defn current-room-contains? [thing]
-  (room-contains? (current-room) thing))
+  (room-contains? @(current-room) thing))
 
 (defn move-player-to [target]
   (dosync
    (move-between-refs *player-name*
-                      (:inhabitants (current-room))
+                      (:inhabitants @(current-room))
                       (:inhabitants target))
    (ref-set *current-room* target)))

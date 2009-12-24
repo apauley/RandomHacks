@@ -21,7 +21,7 @@
     (binding [*player-name*  (read-line)
               *current-room* (ref (rooms :start))
               *inventory*    (ref #{})]
-      (move-player-to (current-room))
+      (move-player-to @(current-room))
       (println (look))
       (print-prompt)
       (loop [input (read-line)]

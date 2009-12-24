@@ -5,15 +5,15 @@
 (defn look []
   "Get a description of the current room"
   (str "\n"
-       (:desc (current-room))
+       (:desc @(current-room))
        "\nInhabitants: " (current-inhabitants)
        "\nItems: "       (current-items)
-       "\nExits: " (keys (:exits (current-room)))))
+       "\nExits: " (keys (:exits @(current-room)))))
 
 (defn move
   "We gotta get out of this place... Give a direction."
   [direction]
-  (let [target-name ((:exits (current-room)) (keyword direction))
+  (let [target-name ((:exits @(current-room)) (keyword direction))
          target (rooms target-name)]
      (if target
        (do (move-player-to target)
@@ -25,7 +25,7 @@
   (if (current-room-contains? thing)
     (dosync
      (move-between-refs (keyword thing)
-                        (:items (current-room))
+                        (:items @(current-room))
                         *inventory*)
      (str "You picked up the " thing "."))
     (str "There isn't any " thing " here.")))
@@ -36,7 +36,7 @@
     (dosync
      (move-between-refs (keyword thing)
                         *inventory*
-                        (:items (current-room)))
+                        (:items @(current-room)))
      (str "You dropped the " thing "."))
     (str "You are not carrying any " thing ".")))
 
