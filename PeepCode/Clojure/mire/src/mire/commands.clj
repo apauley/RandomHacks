@@ -6,8 +6,8 @@
   "Get a description of the current room"
   (str "\n"
        (:desc @(current-room))
-       "\nInhabitants: " (current-inhabitants)
-       "\nItems: "       (current-items)
+       "\nInhabitants: " @(current-inhabitants)
+       "\nItems: "       @(current-items)
        "\nExits: " (keys (:exits @(current-room)))))
 
 (defn move

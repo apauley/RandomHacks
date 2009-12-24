@@ -25,11 +25,11 @@
 
 (defn current-inhabitants []
   "Returns the inhabitants in the current room"
-  @(:inhabitants @(current-room)))
+  (:inhabitants @(current-room)))
 
 (defn current-items []
   "Returns the items available in the current room"
-  @(:items @(current-room)))
+  (:items @(current-room)))
 
 (defn room-contains? [room thing]
   (@(:items room) (keyword thing)))
