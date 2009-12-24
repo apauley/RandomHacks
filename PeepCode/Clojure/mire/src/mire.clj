@@ -1,5 +1,3 @@
-(add-classpath (str "file://" (.getParent (java.io.File. *file*)) "/"))
-
 (ns mire
   (:use [mire commands rooms player util])
   (:use [clojure.contrib server-socket duck-streams]))

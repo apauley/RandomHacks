@@ -1,3 +1,3 @@
 {:desc "You are in a cramped closet. Coats abound. You feel a slight breeze."
  :exits {:south :start}
- :items #{:coathanger :button}}
+ :items #{:keys}}
