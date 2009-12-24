@@ -46,16 +46,15 @@
 
 (def commands
      {:move      move,
-      :north     (fn [] (move :north)),
-      :east      (fn [] (move :east)),
-      :south     (fn [] (move :south)),
-      :west      (fn [] (move :west)),
+      :north     #(move :north),
+      :east      #(move :east),
+      :south     #(move :south),
+      :west      #(move :west),
       :look      look,
       :grab      grab,
       :discard   discard,
       :inventory inventory,
-      :wtf       (fn []
-                   "Yeah sure, I'll do that right after you grow a brain.")})
+      :wtf       #(str "You need help.")})
 
 (defn execute
   "Execute a command passed from the client"
