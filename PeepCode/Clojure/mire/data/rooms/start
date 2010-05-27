@@ -1,3 +1,0 @@
-{:desc "You are in an old, dusty room."
- :exits {:north :closet,
-         :south :hallway}}
